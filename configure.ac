@@ -7,6 +7,7 @@ AM_INIT_AUTOMAKE([
     -Wall -Wno-extra-portability foreign subdir-objects
     tar-pax no-dist-gzip dist-xz
 ])
+AC_DISABLE_SHARED
 
 AC_PROG_CC
 
@@ -17,7 +18,7 @@ AC_COMPILE_IFELSE([AC_LANG_PROGRAM([[_Static_assert(1, "1 is true");]])],
                   [AC_MSG_RESULT([yes])],
                   [AC_MSG_ERROR([Your compiler does not support C11, which is required.])])
 
-LT_INIT([disable-static pic-only])
+LT_INIT([disable-shared])
 
 # optional examples, requires libsndfile
 AC_ARG_ENABLE([examples],
